@@ -63,8 +63,8 @@ function game () {
     // let playerChoice = prompt('Pick Rock Paper or Scissors bitch!');
     
 
-   for (let i = 0; i < 5; i++) {
-    let playerChoice = prompt('Pick Rock Paper or Scissors bitch!');
+   for (let i = 0; i < 1; i++) {
+    // let playerChoice = prompt('Pick Rock Paper or Scissors bitch!');
     let computerChoice = computerPlay();
     const [winner, winnerChoice, loserChoice] = playRound(playerChoice, computerChoice);
 
@@ -81,7 +81,7 @@ function game () {
     // console.log(`Game nr ${i + 1} results: ${playRound(playerChoice, computerChoice)}`);
    }
 
-   console.log(`Results after 5 games: Player ${playerScore} against Computer ${computerScore} and ${tie} tied games.`)
+//    console.log(`Results after 5 games: Player ${playerScore} against Computer ${computerScore} and ${tie} tied games.`)
 }
 
 game();

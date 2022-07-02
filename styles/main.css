@@ -1,0 +1,325 @@
+/* Rock Paper Scissors main.css */
+
+/***** global *****/
+:root {
+  --main-console-color: #04335380;
+  --console-background: #06bbd3;
+
+  --page-background: rgb(0, 0, 0);
+  --main-page-color: #7fc2ff;
+  --menu-font-color: #3A160D;
+  --menu-selected-background: #7fc2ff;
+}
+
+* {
+  box-sizing:border-box;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  background: var(--page-background);
+  color: var(--main-page-color);
+  overflow: hidden;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+
+
+
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  /* justify-content: space-between; */
+}
+
+/***** Header *****/
+
+.header {
+  background: #222;
+  border: 1px solid rgb(99, 98, 98);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header_logo {
+  border: 1px solid rgb(99, 98, 98);
+  margin-left: 1em;
+}
+
+.header_logo img {
+  width: 80px;
+  height: auto;
+}
+
+.header_title {
+  border: 1px solid rgb(99, 98, 98);
+  font-size: 3em;
+  font-weight: bold;
+}
+
+.header_title span {
+  color: #9e0e0e;
+  font-weight: bold;
+}
+
+.header_menu {
+  border: 1px solid rgb(99, 98, 98);
+  margin-right: 1em;
+  font-size: 1.5em;
+}
+
+.header_menu ul {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.5em;
+  list-style: none;
+}
+
+
+/***** Main *****/
+
+.main_container {
+  background: rgb(12, 12, 12);
+  border: 1px solid rgb(151, 150, 150);
+
+
+  min-height: 700px; /* temp */
+}
+
+
+
+/***** Game Container *****/
+
+.game_container {
+  background: #000;
+  border: 1px solid #fff;
+  margin: 1em auto;
+  
+
+  width: 1300px;
+  min-height: 700px;
+}
+
+.game_container_header {
+  background: #000;
+  border: 1px solid #fff;
+}
+
+.game_text_box {
+  background: #000;
+  border: 1px solid #fff;
+  min-height: 5em;
+  font-size: 1.5em;
+  text-align: center;
+  padding: 1em;
+}
+
+
+/***** Game Console *****/
+
+.game_console {
+  background: var(--console-background);
+  color: var(--main-console-color);
+  border: 6px solid var(--main-console-color);
+  border-radius: 10px;
+  margin: 1em 2em;
+
+  min-height: 500px;
+} 
+
+.game_console_main {
+  display: flex;
+  justify-content: space-between;
+}
+
+.game_console_header {
+  border-bottom: 3px dashed var(--main-console-color);
+  height: 2em;
+}
+
+
+/***** Player *****/
+
+.game_console_player {
+
+
+  /* don't keep?? */
+  height: 420px;
+  width: 420px;
+  margin: 0.5em;
+  border: 3px dashed var(--main-console-color);
+  display: flex;
+}
+
+.player_main {
+  border: 1px dashed var(--main-console-color);
+  margin: 1px;
+  width: 240px;
+  height: 410px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.player_avatar {
+  border: 1px dashed var(--main-console-color);
+  margin: 1px;
+  width: 215px;
+  height: 210px;
+}
+
+.player_stats {
+  border: 1px dashed var(--main-console-color);
+  margin: 1px;
+  width: 215px;
+  height: 200px;
+}
+
+.player_side {
+  border: 1px dashed var(--main-console-color);
+  margin: 1px;
+  width: 165px;
+  height: 410px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.player_weapons > * {
+  border: 1px dashed var(--main-console-color);
+  margin: 1px;
+  width: 165px;
+  height: 100px;
+  margin-top: 0.5em;
+}
+
+/***** Computer *****/
+
+.game_console_computer {
+
+
+  /* don't keep?? */
+  height: 420px;
+  width: 420px;
+  margin: 0.5em;
+  border: 3px dashed var(--main-console-color);
+  display: flex;
+}
+
+.computer_main {
+  border: 1px dashed var(--main-console-color);
+  margin: 1px;
+  width: 240px;
+  height: 410px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.computer_avatar {
+  border: 1px dashed var(--main-console-color);
+  margin: 1px;
+  width: 215px;
+  height: 210px;
+}
+
+.computer_stats {
+  border: 1px dashed var(--main-console-color);
+  margin: 1px;
+  width: 215px;
+  height: 200px;
+}
+
+.computer_side {
+  border: 1px dashed var(--main-console-color);
+  margin: 1px;
+  width: 165px;
+  height: 410px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.computer_weapons > * {
+  border: 1px dashed var(--main-console-color);
+  margin: 1px;
+  width: 165px;
+  height: 100px;
+  margin-top: 0.5em;
+}
+
+.game_console_center {
+  margin: 0.5em;
+  border: 3px dashed var(--main-console-color);
+  width: 330px;
+  height: 420px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+}
+
+.game_console_center > * {
+  border: 1px dashed var(--main-console-color);
+  margin: 1px;
+  width: 330px;
+  height: 135px;
+  margin-top: 0.2em;
+}
+
+.game_console_center_top {
+
+}
+.game_console_center_mid {
+
+}
+.game_console_center_bottom {
+
+}
+
+.chosen_weapons {
+  display: flex;
+  justify-content: center;
+
+  border: 1px dashed white;
+}
+.chosen_weapons > * {
+  border: 1px dashed var(--main-console-color);
+  margin: 1px;
+  width: 165px;
+  height: 100px;
+}
+
+
+
+
+
+
+/***** Footer *****/
+
+footer {
+  background: #222;
+  border: 1px solid rgb(151, 150, 150);
+  min-height: 3em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  margin-top: auto;
+}
+
+.footer_content {
+  font-size: 1.5em;
+  padding: 1em;
+  border: 1px solid rgb(99, 98, 98);
+}
