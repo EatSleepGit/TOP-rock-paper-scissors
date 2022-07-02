@@ -3,9 +3,10 @@
 /***** global *****/
 :root {
   --main-console-color: #04335380;
-  --console-background: #06bbd3;
+  --console-background: #00a5bb;
+  --red-color: #9e0e0e;
 
-  --page-background: rgb(0, 0, 0);
+  --page-background: #0c0c0c;
   --main-page-color: #7fc2ff;
   --menu-font-color: #3A160D;
   --menu-selected-background: #7fc2ff;
@@ -34,15 +35,15 @@ body {
 /***** Header *****/
 
 .header {
-  background: #222;
-  border: 1px solid rgb(99, 98, 98);
+  /* background: #222; */
+  /* border: 1px solid rgb(99, 98, 98); */
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
 .header_logo {
-  border: 1px solid rgb(99, 98, 98);
+  /* border: 1px solid rgb(99, 98, 98); */
   margin-left: 1em;
 }
 
@@ -52,18 +53,18 @@ body {
 }
 
 .header_title {
-  border: 1px solid rgb(99, 98, 98);
+  /* border: 1px solid rgb(99, 98, 98); */
   font-size: 3em;
   font-weight: bold;
 }
 
 .header_title span {
-  color: #9e0e0e;
+  color: var(--red-color);
   font-weight: bold;
 }
 
 .header_menu {
-  border: 1px solid rgb(99, 98, 98);
+  /* border: 1px solid rgb(99, 98, 98); */
   margin-right: 1em;
   font-size: 1.5em;
 }
@@ -79,8 +80,8 @@ body {
 /***** Main *****/
 
 .main_container {
-  background: rgb(12, 12, 12);
-  border: 1px solid rgb(151, 150, 150);
+  background: #0c0c0c;
+  /* border: 1px solid rgb(151, 150, 150); */
 
 
   min-height: 700px; /* temp */
@@ -91,8 +92,10 @@ body {
 /***** Game Container *****/
 
 .game_container {
-  background: #000;
-  border: 1px solid #fff;
+  background: #0c0c0c;
+  /* border: 1px solid #fff; */
+  /* border: 6px solid var(--main-console-color); */
+  border-radius: 10px;
   margin: 1em auto;
   
 
@@ -101,17 +104,21 @@ body {
 }
 
 .game_container_header {
-  background: #000;
-  border: 1px solid #fff;
+  background: #0c0c0c;
+
 }
 
 .game_text_box {
-  background: #000;
-  border: 1px solid #fff;
+  background: #0c0c0c;
+  /* border: 1px solid #fff; */
+  border: 6px solid var(--main-console-color);
+  border-radius: 10px;
+  /* border-style: outset; */
   min-height: 5em;
   font-size: 1.5em;
   text-align: center;
   padding: 1em;
+  margin: 0 1.5em;
 }
 
 
@@ -122,6 +129,7 @@ body {
   color: var(--main-console-color);
   border: 6px solid var(--main-console-color);
   border-radius: 10px;
+  /* border-style: inset; */
   margin: 1em 2em;
 
   min-height: 500px;
@@ -136,12 +144,15 @@ body {
   border-bottom: 3px dashed var(--main-console-color);
   height: 2em;
 }
+.console_header_info h2 {
+  /* margin-left: 2em; */
+  white-space: pre;
+}
 
 
 /***** Player *****/
 
 .game_console_player {
-
 
   /* don't keep?? */
   height: 420px;
@@ -169,12 +180,22 @@ body {
   width: 215px;
   height: 210px;
 }
+.player_avatar img {
+  width: 225px;
+  height: 210px;
+}
 
 .player_stats {
   border: 1px dashed var(--main-console-color);
   margin: 1px;
-  width: 215px;
+  width: 225px;
   height: 200px;
+  font-size: 1.5em;
+}
+.player_cash, .computer_cash {
+  border: 1px dashed var(--main-console-color);
+  display: flex;
+  align-items: center;
 }
 
 .player_side {
@@ -185,8 +206,23 @@ body {
 
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: baseline;
   align-items: center;
+}
+
+.player_bet, .computer_bet {
+  border: 1px dashed var(--main-console-color);
+  display: flex;
+  align-items: center;
+  /* justify-content: center; */
+  font-size: 2em;
+}
+.player_bet img, .computer_bet img {
+  width: 30px;
+}
+
+.player_weapons {
+  border: 1px dashed red;
 }
 
 .player_weapons > * {
@@ -195,6 +231,9 @@ body {
   width: 165px;
   height: 100px;
   margin-top: 0.5em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 /***** Computer *****/
@@ -225,15 +264,20 @@ body {
 .computer_avatar {
   border: 1px dashed var(--main-console-color);
   margin: 1px;
-  width: 215px;
+  width: 225px;
+  height: 210px;
+}
+.computer_avatar img {
+  width: 210px;
   height: 210px;
 }
 
 .computer_stats {
   border: 1px dashed var(--main-console-color);
   margin: 1px;
-  width: 215px;
+  width: 225px;
   height: 200px;
+  font-size: 1.4em;
 }
 
 .computer_side {
@@ -244,7 +288,7 @@ body {
 
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: baseline;
   align-items: center;
 }
 
@@ -254,6 +298,9 @@ body {
   width: 165px;
   height: 100px;
   margin-top: 0.5em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .game_console_center {
@@ -278,14 +325,71 @@ body {
 }
 
 .game_console_center_top {
-
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
 }
 .game_console_center_mid {
-
+  border: 1px dashed blue;
 }
 .game_console_center_bottom {
+  
+}
+
+.amount_bet_text {
+  border: 1px dashed white;
+  text-align: center;
+  font-weight: bold;
 
 }
+
+.chosen_weapons_text {
+  text-align: center;
+  font-weight: bold;
+  padding-bottom: 3px;
+}
+
+.versus_box { 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* border: 1px dashed black;
+  width: 80px;
+  height: 80px; */
+  /* position: relative; */
+  /* padding-left: 1em; */
+}
+
+/***** 8-burst "star" *****/
+
+.star {
+  background: black;
+  width: 70px;
+  height: 70px; 
+  position: absolute;
+  text-align: center;
+  transform: rotate(20deg);
+
+}
+.star:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 70px;
+  height: 70px; 
+  background: black;
+  transform: rotate(135deg);
+}
+
+.versus_text {
+  font-size: 3em;
+  font-weight: bolder;
+  font-style: oblique;
+  z-index: 900;
+  color: var(--red-color);
+}
+
 
 .chosen_weapons {
   display: flex;
@@ -296,10 +400,66 @@ body {
 .chosen_weapons > * {
   border: 1px dashed var(--main-console-color);
   margin: 1px;
-  width: 165px;
+  width: 100px;
   height: 100px;
 }
 
+
+/***** Weapons *****/
+
+.player_weapons img {
+  width: 100px;
+  height: auto;
+}
+
+.computer_weapons img {
+  width: 100px;
+  height: auto;
+}
+
+.players_choice img, .computers_choice img {
+  width: 100px;
+  height: auto;
+}
+
+
+/***** Results *****/
+
+.result_text {
+  border: 1px dashed green;
+  text-align: center;
+  font-weight: bold;
+}
+
+.winner_container {
+  display: flex;
+}
+
+.winner_box {
+  border: 1px dashed red;
+  margin-left: 5px;
+  font-size: 1.3em;
+  /* line-height: 1.2; */
+  position: relative;
+
+}
+
+.winner_box > * {
+  display: flex;
+  /* justify-content: center; */
+  align-items: center;
+  margin-top: 7px;
+}
+.winner_avatar img {
+  width: 100px;
+}
+.winner_box img {
+  width: 30px;
+  margin: 0 auto;
+  position: absolute;
+  right: 20px;
+  
+}
 
 
 
@@ -309,7 +469,7 @@ body {
 
 footer {
   background: #222;
-  border: 1px solid rgb(151, 150, 150);
+  /* border: 1px solid rgb(151, 150, 150); */
   min-height: 3em;
   display: flex;
   justify-content: center;
@@ -321,5 +481,5 @@ footer {
 .footer_content {
   font-size: 1.5em;
   padding: 1em;
-  border: 1px solid rgb(99, 98, 98);
+  /* border: 1px solid rgb(99, 98, 98); */
 }
