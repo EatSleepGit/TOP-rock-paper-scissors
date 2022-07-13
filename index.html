@@ -1,5 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
+    
+<!-- ======= Meta data / Links & Script ======= -->
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,8 +10,32 @@
     <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
     <link rel="stylesheet" href="/styles/main.css">
     <script defer src="/js/main.js"></script>
-</head>
+</head><!-- End Meta & Scripts -->
+
 <body>
+    
+    <!-- ======= Intro ======= -->
+    <div class="intro_container">
+        <div class="intro_content">
+            <div class="exit_text">Press any key to skip intro</div>
+            <h2 class="splash_1">In the beginning</h2>
+            <h2 class="splash_2">there was only Rock...Paper...No, what?</h2>
+            <h2 class="splash_3">And Scissors...No, no, defintiely not..</h2>
+            <h2 class="splash_4">Anyhoo...</h2>
+            <h2 class="splash_5">
+                <span>Rock</span>
+                <span>Paper</span>
+                <span>Scissors</span>
+                <div class="pics">
+                    <div><img src="/images/rock_120b.png" alt="Rock"></div>
+                    <div><img src="/images/paper_120b.png" alt="Rock"></div>
+                    <div><img src="/images/scissors_120b.png" alt="Rock"></div>
+                </div>
+            </h2>
+        </div>
+    </div><!-- End Intro -->
+
+    <!-- ======= Header/ Logo/ Title / Navbar ======= -->
     <header class="header">
         <div class="header_logo">
             <img src="/images/head_logo.png" alt="Logo">
@@ -19,35 +45,48 @@
         </div>
         <div class="header_menu">
             <ul>
-                <li>Item 1</li>
-                <li>Item 2</li>
+                <li><a href="#">Rules</a></li>
+                <li><a href="#">Item 2</a></li>
             </ul>
         </div>
-    </header>
+    </header><!-- End Header -->
+
+    <!-- ======= Main Container ======= -->
     <main class="main_container">
         <div class="game_container">
             <div class="game_container_header">
                 <div class="game_text_box">
-                    <p>
+                    <p class="type">
                         Would you like to play a game...?
                     </p>
                 </div>
             </div>
 
+            <!-- ======= Game Console ======= -->
             <div class="game_console">
                 <div class="game_console_header">
                     <div class="console_header_info">
-                        <h2>&Tab;&Tab;Player&Tab;&Tab;&nbsp;&nbsp;Weapons&Tab;&Tab;&Tab;Game:&nbsp;<span id="game_nr"> 5 of 5</span>&Tab;&Tab;&Tab;&nbsp;&nbsp;&nbsp;Weapons&Tab;&Tab;&nbsp;&nbsp;Computer</h2>
+                        <h2>&Tab;&Tab;Player&Tab;&Tab;&nbsp;&nbsp;Weapons&Tab;&Tab;&Tab;&nbsp;&nbsp;&nbsp;&nbsp;Game:&nbsp;<span id="game_nr">0</span>&nbsp;&Tab;&Tab;&Tab;&nbsp;&nbsp;&nbsp;Weapons&Tab;&Tab;&nbsp;&nbsp;Computer</h2>
                     </div>
                 </div>
+
+                <!-- ======= GC Player (Left) ======= -->
                 <div class="game_console_main">
                     <div class="game_console_player">
                         <div class="player_main">
+
+                            <!-- Player Avatar-->
                             <div class="player_avatar">
-                                <img src="/images/player_avatar.png" alt="Player Avatar">
+                                <img src="/images/player_120.png" alt="Player Avatar">
                             </div>
+
+                            <!-- Player Stats-->
                             <div class="player_stats">
                                 <div class="player_cash">Player Cash: $<span>300</span></div>
+                                <div class="player_games_won"></div>
+                                <div class="player_games_lost"></div>
+                                <div class="player_games_tied"></div>
+                                <div class="player_games_played"></div>
                             </div>
                         </div>
                         
@@ -56,20 +95,29 @@
                                 <img src="/images/dollar_120.png" alt="Dollar Sign">
                                 <p>&nbsp;Bet</p>
                             </div>
+
+                            <!-- Player Weapons-->
                             <div class="player_weapons">
                                 <div class="weapon1"><img src="/images/rock_120.png" alt="Rock"></div>
-                                <div class="weapon2"><img src="/images/paper2_120.png" alt="Paper"></div>
+                                <div class="weapon2"><img src="/images/paper_120.png" alt="Paper"></div>
                                 <div class="weapon3"><img src="/images/scissors_120.png" alt="Scissors"></div>
                             </div>  
                         </div>
-                    </div>
+                    </div><!-- End Player -->
                     
+                    <!-- ======= Game Console Center ======= -->
                     <div class="game_console_center">
                         <div class="game_console_center_top">
+                            <div class="play_container">
+                                <div class="action_button">Play</div>
+                                <div class="restart_button">Restart</div>
+                            </div>
                             <div class="amount_bet_text">
                                 <h2>$ Bet each: <span>100</span></h2>
                             </div>
                         </div>
+
+                        <!-- Chosen weapons (Both sides) -->
                         <div class="game_console_center_mid">
                             <div class="chosen_weapons_text">
                                 <h2>Weapons of choice</h2>
@@ -90,63 +138,98 @@
                                     </div>
                                 </div>
                             </div>
+                        </div><!-- End Chosen Wesapons -->
 
-                        </div>
+                        <!-- ======= GC Results (Center) ======= -->
                         <div class="game_console_center_bottom">
-                            <div class="result_text">
-                                <h2><span>Combatant</span> is the winner!</h2>
-                            </div>
                             <div class="winner_container">
-                                <div class="winner_avatar_box">
-                                    <!-- <div class="winner_name">Combatant</div> -->
-                                    <div class="winner_avatar"><img src="/images/question_120.png" alt="Question mark"></div>
+                                <div class="result_text">
+                                    <h2><span class="winner_name"></span></h2>
                                 </div>
                                 <div class="winner_box">
-                                    <div class="winner_name">Combatant won $<span> 200</span></div>
-                                    <div class="winner_weapon">
-                                        with&nbsp;<span id="winning_weapon">Scissors</span>
-                                        <img src="/images/question_120.png" alt="Question mark">
+                                    <div class="winner_avatar_box">
+                                        <div class="winner_avatar"></div>
                                     </div>
-                                    <div class="loser_weapon">
-                                        against&nbsp;<span id="losing_weapon">Paper</span>
-                                        <img src="/images/question_120.png" alt="Question mark">
+                                    <div class="winner_info_box">
+                                        <div class="winner_name2"></div>
+                                        <div id="winning_weapon"></div>
+                                        <div class="winner_weapon">
+                                            <img src="/images/question_120.png" alt="Question mark">
+                                        </div>
+                                        <div id="losing_weapon"></div>
+                                        <div class="loser_weapon">
+                                            <img src="/images/question_120.png" alt="Question mark">
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                    </div>
+                        </div><!-- End GC Results -->
+                    </div><!-- End  Game Console Center -->
 
+                    <!-- ======= Game Console Computer (Right) ======= -->
                     <div class="game_console_computer">
                         <div class="computer_side">
                             <div class="computer_bet">
                                 <img src="/images/dollar_120.png" alt="Dollar Sign">
                                 <p>&nbsp;Bet</p>
                             </div>
+
+                            <!-- Computer Weapons -->
                             <div class="computer_weapons">
                                 <div class="weapon1"><img src="/images/question_120.png" alt="Question mark"></div>
                                 <div class="weapon2"><img src="/images/question_120.png" alt="Question mark"></div>
                                 <div class="weapon3"><img src="/images/question_120.png" alt="Question mark"></div>
                             </div>
-                        </div>
-                        <div class="computer_main">
-                            <div class="computer_avatar">
-                                <img src="/images/hacker_avatar.png" alt="Hacker Avatar">
                             </div>
+
+                            <!-- Computer Avatar -->
+                            <div class="computer_main">
+                            <div class="computer_avatar">
+                                <img src="/images/computer_120.png" alt="Computer Avatar">
+                            </div>
+
+                            <!-- Computer Stats -->
                             <div class="computer_stats">
                                 <div class="computer_cash">Computer Cash: $<span>300</span></div>
+                                <div class="computer_games_won"></div>
+                                <div class="computer_games_lost"></div>
+                                <div class="computer_games_tied"></div>
+                                <div class="computer_games_played"></div>
                             </div>
-                        </div>
-                        </div>
+                         </div>
+                    </div><!-- End Game Console Computer -->
                     </div>
                 </div>
-            </div>
+            </div><!-- End Game Console -->
         </div>
-    </main>
+    </main><!-- End Main Container-->
+
+    <!-- ======= Footer ======= -->
     <footer>
         <div class="footer_content">
-            <p>Copyright &copy;</p>
+            <p>
+                Copyright &copy; 2022 Kim Arontaus 
+                <span>
+                    <a target="_blank" rel="noopener noreferrer"
+                      href="https://github.com/EatSleepGit/TOP-rock-paper-scissors"><img class="gitHubLogo"
+                        src="images/GitHub-Mark-Light-32px.png" alt="GitHub logo"></a>
+                  </span>
+            </p>
         </div>
-    </footer>
+    </footer><!-- End Footer -->
+
+    <!-- ======= Sound files ======= -->
+    <audio id="tink" src="sounds/tink.wav"></audio>
+    <audio id="shutter" src="sounds/shutter.mp3"></audio>
+    <audio id="shutter2" src="sounds/shutter2.mp3"></audio>
+    <audio id="unsheath_sword" src="sounds/unsheath_sword.mp3"></audio>
+    <audio id="sword" src="sounds/sword.mp3"></audio>
+    <audio id="yipee" src="sounds/yipee.mp3"></audio>
+    <audio id="negative_beeps" src="sounds/negative_beeps.mp3"></audio>
+    <audio id="reset2" src="sounds/reset2.mp3"></audio>
+    <audio id="rock" src="sounds/rock.mp3"></audio>
+    <audio id="paper" src="sounds/paper.mp3"></audio>
+    <audio id="scissors" src="sounds/scissors.mp3"></audio>
 
 </body>
 </html>

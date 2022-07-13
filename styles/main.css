@@ -1,9 +1,12 @@
 /* Rock Paper Scissors main.css */
 
-/***** global *****/
+/*--------------------------------------------------------------
+# Global
+--------------------------------------------------------------*/
 :root {
   --main-console-color: #04335380;
-  --console-background: #00a5bb;
+  --dark-color: #0c0c0c;
+  --console-background: #00a4c0;
   --red-color: #9e0e0e;
 
   --page-background: #0c0c0c;
@@ -12,35 +15,41 @@
   --menu-selected-background: #7fc2ff;
 }
 
+/* Make sure that padding behaves as expected */
 * {
   box-sizing:border-box;
   padding: 0;
   margin: 0;
 }
 
+/* * img {
+  filter:drop-shadow(0 5px 1px #d50102);
+} */
+
 body {
   background: var(--page-background);
   color: var(--main-page-color);
   overflow: hidden;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
-
-
-
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   /* justify-content: space-between; */
 }
 
-/***** Header *****/
+/*--------------------------------------------------------------
+# Header
+--------------------------------------------------------------*/
 
 .header {
-  /* background: #222; */
-  /* border: 1px solid rgb(99, 98, 98); */
+  visibility: hidden;
+  animation: fadeIn2 3s paused;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
+
+/* ==================== Logo ===================== */
 
 .header_logo {
   /* border: 1px solid rgb(99, 98, 98); */
@@ -50,12 +59,19 @@ body {
 .header_logo img {
   width: 80px;
   height: auto;
+  transition: transform 0.3s ease-in-out;
 }
+.header_logo img:hover {
+  transform: rotate(360deg) scale(0.9);
+}
+
+/* ==================== Title ===================== */
 
 .header_title {
   /* border: 1px solid rgb(99, 98, 98); */
   font-size: 3em;
   font-weight: bold;
+  /* filter:drop-shadow(0 5px 1px #d50102); */
 }
 
 .header_title span {
@@ -63,6 +79,7 @@ body {
   font-weight: bold;
 }
 
+/* ===== Links ===== */
 .header_menu {
   /* border: 1px solid rgb(99, 98, 98); */
   margin-right: 1em;
@@ -75,12 +92,24 @@ body {
   gap: 0.5em;
   list-style: none;
 }
+.header a {
+  text-decoration: none;
+  color: var(--console-background);
+}
+.header a:hover {
+  color: var(--main-page-color);
+}
 
 
-/***** Main *****/
+/*--------------------------------------------------------------
+# Main
+--------------------------------------------------------------*/
 
 .main_container {
-  background: #0c0c0c;
+  visibility: hidden;
+  animation: fadeIn3 3s paused;
+
+  background: var(--dark-color);
   /* border: 1px solid rgb(151, 150, 150); */
 
 
@@ -89,13 +118,15 @@ body {
 
 
 
-/***** Game Container *****/
+/*--------------------------------------------------------------
+# Game Container
+--------------------------------------------------------------*/
 
 .game_container {
-  background: #0c0c0c;
-  /* border: 1px solid #fff; */
+  background: var(--dark-color);
+  /* border: 1px solid var(--main-page-color); */
   /* border: 6px solid var(--main-console-color); */
-  border-radius: 10px;
+  /* border-radius: 10px; */
   margin: 1em auto;
   
 
@@ -104,16 +135,16 @@ body {
 }
 
 .game_container_header {
-  background: #0c0c0c;
-
+  background: var(--dark-color);
 }
 
+/* ===== Game Text Box (Messages) ===== */
 .game_text_box {
-  background: #0c0c0c;
-  /* border: 1px solid #fff; */
-  border: 6px solid var(--main-console-color);
+  visibility: hidden;
+  /* animation: fadeIn1 3s paused; */
+  border: 6px solid var(--dark-color);
+  /* border: 6px solid var(--main-console-color); */
   border-radius: 10px;
-  /* border-style: outset; */
   min-height: 5em;
   font-size: 1.5em;
   text-align: center;
@@ -122,13 +153,16 @@ body {
 }
 
 
-/***** Game Console *****/
+/*--------------------------------------------------------------
+# Game Console
+--------------------------------------------------------------*/
 
 .game_console {
-  background: var(--console-background);
+  /* background: var(--console-background); */
   color: var(--main-console-color);
   border: 6px solid var(--main-console-color);
   border-radius: 10px;
+  /* filter:drop-shadow(0 5px 1px #d50102); */
   /* border-style: inset; */
   margin: 1em 2em;
 
@@ -144,38 +178,42 @@ body {
   border-bottom: 3px dashed var(--main-console-color);
   height: 2em;
 }
+
+/* ===== Information Header ===== */
 .console_header_info h2 {
   /* margin-left: 2em; */
   white-space: pre;
+  color: var(--main-page-color);
 }
 
 
-/***** Player *****/
+/*--------------------------------------------------------------
+# Game Console Player
+--------------------------------------------------------------*/
 
 .game_console_player {
-
+  border: 6px solid var(--main-console-color);
+  border-radius: 10px;
+  background: var(--console-background);
   /* don't keep?? */
   height: 420px;
   width: 420px;
   margin: 0.5em;
-  border: 3px dashed var(--main-console-color);
   display: flex;
 }
 
 .player_main {
-  border: 1px dashed var(--main-console-color);
   margin: 1px;
   width: 240px;
   height: 410px;
-
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
 
+/* ===== Player Avatar ===== */
 .player_avatar {
-  border: 1px dashed var(--main-console-color);
   margin: 1px;
   width: 215px;
   height: 210px;
@@ -185,33 +223,30 @@ body {
   height: 210px;
 }
 
+/* ===== Player Stats ===== */
 .player_stats {
-  border: 1px dashed var(--main-console-color);
   margin: 1px;
   width: 225px;
   height: 200px;
   font-size: 1.5em;
 }
 .player_cash, .computer_cash {
-  border: 1px dashed var(--main-console-color);
   display: flex;
   align-items: center;
 }
 
 .player_side {
-  border: 1px dashed var(--main-console-color);
   margin: 1px;
   width: 165px;
   height: 410px;
-
   display: flex;
   flex-direction: column;
   justify-content: baseline;
   align-items: center;
 }
 
+/* ===== Betting ===== */
 .player_bet, .computer_bet {
-  border: 1px dashed var(--main-console-color);
   display: flex;
   align-items: center;
   /* justify-content: center; */
@@ -221,14 +256,21 @@ body {
   width: 30px;
 }
 
+/* ===== Player Weapons ===== */
 .player_weapons {
-  border: 1px dashed red;
+  /* border: 1px dashed red; */
+}
+.player_weapons_pulsating {
+  animation: pulsating 2s infinite;
 }
 
+
 .player_weapons > * {
-  border: 1px dashed var(--main-console-color);
+  border: 3px solid var(--main-console-color);
+  border-radius: 10px;
+  cursor: pointer;
   margin: 1px;
-  width: 165px;
+  width: auto; /* changed to auto */
   height: 100px;
   margin-top: 0.5em;
   display: flex;
@@ -236,21 +278,34 @@ body {
   justify-content: center;
 }
 
-/***** Computer *****/
+.player_weapons > *:hover {
+  /* border-color: var(--dark-color); */
+  transform: scale(1.05);
+  border-color: var(--menu-selected-background);
+  box-shadow: 0 0 1rem var(--main-page-color);
+  /* border-width: 5px; */
+}
+/* .player_weapons_activated {
+  background: var(--menu-selected-background);
+} */
+
+/*--------------------------------------------------------------
+# Game Console Computer
+--------------------------------------------------------------*/
 
 .game_console_computer {
-
-
+  border: 6px solid var(--main-console-color);
+  border-radius: 10px;
+  background: var(--console-background);
   /* don't keep?? */
   height: 420px;
   width: 420px;
   margin: 0.5em;
-  border: 3px dashed var(--main-console-color);
   display: flex;
 }
 
 .computer_main {
-  border: 1px dashed var(--main-console-color);
+  /* border: 1px dashed var(--main-console-color); */
   margin: 1px;
   width: 240px;
   height: 410px;
@@ -261,8 +316,8 @@ body {
   align-items: center;
 }
 
+/* ===== Computer Avatar ===== */
 .computer_avatar {
-  border: 1px dashed var(--main-console-color);
   margin: 1px;
   width: 225px;
   height: 210px;
@@ -272,8 +327,8 @@ body {
   height: 210px;
 }
 
+/* ===== Computer Stats ===== */
 .computer_stats {
-  border: 1px dashed var(--main-console-color);
   margin: 1px;
   width: 225px;
   height: 200px;
@@ -281,7 +336,6 @@ body {
 }
 
 .computer_side {
-  border: 1px dashed var(--main-console-color);
   margin: 1px;
   width: 165px;
   height: 410px;
@@ -293,7 +347,6 @@ body {
 }
 
 .computer_weapons > * {
-  border: 1px dashed var(--main-console-color);
   margin: 1px;
   width: 165px;
   height: 100px;
@@ -303,9 +356,17 @@ body {
   justify-content: center;
 }
 
+/*--------------------------------------------------------------
+# Game Console Center
+--------------------------------------------------------------*/
+
 .game_console_center {
+  /* border: 6px solid var(--main-console-color);
+  border-radius: 10px; */
+  /* background: var(--console-background); */
+
+
   margin: 0.5em;
-  border: 3px dashed var(--main-console-color);
   width: 330px;
   height: 420px;
 
@@ -313,11 +374,12 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-
 }
+/* .game_console_center_active {
+  background: var(--main-page-color);
+} */
 
 .game_console_center > * {
-  border: 1px dashed var(--main-console-color);
   margin: 1px;
   width: 330px;
   height: 135px;
@@ -328,16 +390,84 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: end;
+  background: var(--console-background);
+  border: 6px solid var(--main-console-color);
+  border-radius: 10px;
 }
 .game_console_center_mid {
-  border: 1px dashed blue;
+  visibility: hidden;
+  background: var(--console-background);
+  border: 6px solid var(--main-console-color);
+  border-radius: 10px;
 }
 .game_console_center_bottom {
-  
+  visibility: hidden;
+  background: var(--console-background);
+  border: 6px solid var(--main-console-color);
+  border-radius: 10px;
+}
+.game_console_center_mid_active {
+  background: var(--menu-selected-background);
+  border: 6px solid var(--main-console-color);
+  border-radius: 10px;
+}
+.game_console_center_bottom_active {
+  background: var(--menu-selected-background);
+  border: 6px solid var(--main-console-color);
+  border-radius: 10px;
 }
 
+/* ===== Transition (for Button  ===== */
+.transition {
+  transform: scale(1.05);
+  border-color: var(--menu-selected-background);
+  box-shadow: 0 0 1rem var(--main-page-color);
+}
+
+/*--------------------------------------------------------------
+# Play / Restart Buttons( Game Console Center)
+--------------------------------------------------------------*/
+
+.play_container {
+height: 100px;
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+}
+.restart_button {
+  visibility: hidden;
+}
+.action_button, .restart_button {
+  font-size: 1.5em;
+  padding: 3px;
+  border: 3px solid var(--main-console-color);
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 5px;
+  /* animation: pulsating 2s infinite; */
+}
+.action_button:hover, .restart_button:hover {
+  /* border-color: var(--dark-color); */
+  transform: scale(1.05);
+  border-color: var(--menu-selected-background);
+  box-shadow: 0 0 1rem var(--main-page-color);
+  /* border-width: 5px; */
+}
+.action_button_pressed {
+  background: var(--main-page-color);
+  /* border-width: 6px; */
+}
+.action_button_pulsating {
+  animation: pulsating 2s infinite;
+}
+
+
+/*--------------------------------------------------------------
+# Bet & VS (Game Console Center)
+--------------------------------------------------------------*/
 .amount_bet_text {
-  border: 1px dashed white;
+  /* border: 1px dashed white; */
   text-align: center;
   font-weight: bold;
 
@@ -346,21 +476,18 @@ body {
 .chosen_weapons_text {
   text-align: center;
   font-weight: bold;
-  padding-bottom: 3px;
+  /* padding-bottom: 3px; */
+
 }
 
+/* ===== VS  ===== */
 .versus_box { 
   display: flex;
   justify-content: center;
   align-items: center;
-  /* border: 1px dashed black;
-  width: 80px;
-  height: 80px; */
-  /* position: relative; */
-  /* padding-left: 1em; */
 }
 
-/***** 8-burst "star" *****/
+/* ===== VS STAR  ===== */
 
 .star {
   background: black;
@@ -390,96 +517,375 @@ body {
   color: var(--red-color);
 }
 
-
+/* ===== Chosen Weapons  ===== */
 .chosen_weapons {
   display: flex;
   justify-content: center;
-
-  border: 1px dashed white;
 }
+/* .chosen_weapons_active {
+  background: var(--menu-selected-background);
+  border-radius: 10px;
+} */
 .chosen_weapons > * {
-  border: 1px dashed var(--main-console-color);
+  /* border: 1px dashed white; */
   margin: 1px;
   width: 100px;
-  height: 100px;
+height: auto;
 }
 
 
-/***** Weapons *****/
+/*--------------------------------------------------------------
+# Weapons
+--------------------------------------------------------------*/
 
 .player_weapons img {
   width: 100px;
   height: auto;
+  padding: 15px;
 }
 
 .computer_weapons img {
   width: 100px;
   height: auto;
+  /* padding: 15px; */
 }
 
 .players_choice img, .computers_choice img {
-  width: 100px;
+  width: 90px;
   height: auto;
+  /* padding: 15px; */
 }
 
 
-/***** Results *****/
+/*--------------------------------------------------------------
+# Results / Winner Info
+--------------------------------------------------------------*/
+
+.winner_container {
+  content-visibility: hidden; /* hidden!!!! */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 
 .result_text {
-  border: 1px dashed green;
+  /* border: 1px dashed white; */
   text-align: center;
   font-weight: bold;
 }
 
-.winner_container {
+.winner_box {
+  /* border: 1px dashed green; */
   display: flex;
+  /* width: 400px; */
 }
 
-.winner_box {
-  border: 1px dashed red;
+.winner_info_box {
+  /* border: 1px dashed red; */
+  width: 200px;
   margin-left: 5px;
   font-size: 1.3em;
   /* line-height: 1.2; */
   position: relative;
-
 }
 
-.winner_box > * {
+.winner_name2 {
+  /* border: 1px dashed greenyellow; */
+}
+
+/* ===== Winning / Losing Weapons  ===== */
+#winning_weapon {
+  /* border: 1px dashed orange; */
+  width: fit-content;
+}
+#losing_weapon {
+  /* border: 1px dashed orange; */
+  width: fit-content;
+}
+
+.winner_info_box > * {
   display: flex;
   /* justify-content: center; */
   align-items: center;
-  margin-top: 7px;
+  margin-top: 3px;
 }
 .winner_avatar img {
   width: 100px;
 }
-.winner_box img {
+.winner_info_box img {
   width: 30px;
-  margin: 0 auto;
+  /* margin: 0 auto; */
   position: absolute;
-  right: 20px;
-  
+  right: 10px;
+  /* border: 1px dashed purple; */
+}
+.winner_weapon img{
+  top: 25px;
+}
+.loser_weapon img {
+  top: 57px;
 }
 
 
-
-
-
-/***** Footer *****/
+/*--------------------------------------------------------------
+# Footer
+--------------------------------------------------------------*/
 
 footer {
-  background: #222;
+
+  visibility: hidden;
+  background: var(--dark-color);
   /* border: 1px solid rgb(151, 150, 150); */
   min-height: 3em;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
   margin-top: auto;
 }
 
-.footer_content {
+.footer_content p {
+  color: var(--console-background);
+  display: flex;
+  justify-content: center;
+  align-items: center;
   font-size: 1.5em;
   padding: 1em;
   /* border: 1px solid rgb(99, 98, 98); */
+}
+.footer_content img {
+  margin-left: 5px;
+  transition: transform 0.3s ease-in-out;
+}
+
+.footer_content img:hover {
+  transform: rotate(360deg) scale(0.9);
+}
+
+
+/*--------------------------------------------------------------
+# Animations
+--------------------------------------------------------------*/
+
+
+/* ===== Play Button Animations  ===== */
+@keyframes pulsating {
+	0% {
+		transform: scale(1.05);
+		box-shadow: 0 0 0 0 rgba(127, 194, 255, 0.8);
+    background: rgba(127, 194, 255, 0.8);
+	}
+
+	70% {
+		transform: scale(1);
+		box-shadow: 0 0 0 15px rgba(127, 194, 255, 0);
+	}
+
+	100% {
+		transform: scale(1.05);
+		box-shadow: 0 0 0 0 rgba(127, 194, 255, 0);
+	}
+}
+
+
+
+/*--------------------------------------------------------------
+# Intro
+--------------------------------------------------------------*/
+
+
+.intro_container {
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  background: var(--dark-color);
+}
+
+.exit_text {
+  margin-left: 20px;
+  margin-top: 10px;
+  font-size: 1.2em;
+  color: var(--console-background);
+  
+}
+
+.intro_content {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0px;
+  top: 0px;
+  z-index: 1000;
+}
+.intro_container h2 {
+  position: absolute;
+  top: 50%;
+  line-height: 100px;
+  height: 100px;
+  margin-top: -50px;
+  font-size: 100px;
+  width: 100%;
+  text-align: center;
+  color: transparent;
+  animation: blurFadeInOut 3s ease-in backwards;
+}
+.intro_container h2.splash_1 {
+  animation-delay: 0s;
+}
+.intro_container h2.splash_2 {
+  animation-delay: 2.5s;
+}
+.intro_container h2.splash_3 {
+  /* font-size: 200px; */
+  animation-delay: 5.5s;
+}
+.intro_container h2.splash_4 {
+  /* font-size: 200px; */
+  animation-delay: 9s;
+}
+.intro_container h2.splash_5 {
+  animation: none;
+  /* color: transparent;
+  text-shadow: 0px 0px 1px var(--main-page-color) */
+}
+.intro_container h2.splash_5 span {
+  animation: blurFadeIn 3s ease-in 13s backwards;
+  color: transparent;
+  text-shadow: 0px 0px 1px var(--console-background);
+}
+.intro_container h2.splash_5 span:nth-child(2) {
+  animation-delay: 14s;
+  text-shadow: 0px 0px 1px var(--red-color);
+}
+.intro_container h2.splash_5 span:nth-child(3) {
+  animation-delay: 15s;
+}
+.pics div {
+  animation: blurFadeIn 3s ease-in 16s backwards;
+  color: transparent;
+  text-shadow: 0px 0px 1px var(--console-background);
+}
+.pics div:nth-child(1) {
+  animation-delay: 16s
+}
+.pics div:nth-child(2) {
+  animation-delay: 16.5s
+}
+.pics div:nth-child(3) {
+  animation-delay: 17s
+}
+.intro_container h2.splash_5 {
+  animation: fadeOut 3s ease-out 19s forwards;
+  color: transparent;
+  text-shadow: 0px 0px 1px var(--dark-color);
+}
+
+.pics {
+  display: flex;
+  justify-content: center;
+  gap: 1.5em;
+  margin-top: 1.2em;
+}
+
+@keyframes blurFadeInOut{
+  0%{
+    opacity: 0;
+    text-shadow: 0px 0px 40px var(--main-page-color);
+    transform: scale(0.9);
+  }
+  20%,75%{
+    opacity: 1;
+    text-shadow: 0px 0px 1px var(--main-page-color);
+    transform: scale(1);
+  }
+  100%{
+    opacity: 0;
+    text-shadow: 0px 0px 50px var(--main-page-color);
+    transform: scale(0);
+  }
+}
+@keyframes blurFadeIn{
+  0%{
+    opacity: 0;
+    text-shadow: 0px 0px 40px var(--main-page-color);
+    transform: scale(1.3);
+  }
+  50%{
+    opacity: 0.5;
+    text-shadow: 0px 0px 10px var(--main-page-color);
+    transform: scale(1.1);
+  }
+  100%{
+    opacity: 1;
+    text-shadow: 0px 0px 1px var(--main-page-color);
+    transform: scale(1);
+  }
+}
+@keyframes fadeInBack{
+  0%{
+    opacity: 0;
+    transform: scale(0);
+  }
+  50%{
+    opacity: 0.4;
+    transform: scale(2);
+  }
+  100%{
+    opacity: 0.2;
+    transform: scale(5);
+  }
+}
+@keyframes fadeOut{
+  0%{
+    opacity: 1;
+    text-shadow: 0px 0px 40px var(--main-page-color);
+  }
+  50%{
+    opacity: 0.5;
+    text-shadow: 0px 0px 10px var(--main-page-color);
+  }
+  100%{
+    opacity: 0;
+    text-shadow: 0px 0px 1px var(--main-page-color);
+  }
+}
+
+
+/**** later *****/
+
+@keyframes fadeIn1{
+  0%{
+    opacity: 0;
+  }
+  50%{
+    opacity: 0.5;
+  }
+  100%{
+    opacity: 1;
+  }
+}
+
+
+/* ===== Game Text Box (Message) Animation  ===== */
+.type {
+  animation-play-state: paused !important;
+  width: 32ch;
+  /* width: fit-content; */
+  animation: typing 4s steps(32), blink .5s step-end infinite alternate;
+  white-space: nowrap;
+  overflow: hidden;
+  border-right: 3px solid;
+  font-family: monospace;
+  font-size: 2em;
+}
+
+@keyframes typing {
+  from {
+    width: 0
+  }
+}
+    
+@keyframes blink {
+  50% {
+    border-color: transparent
+  }
 }
