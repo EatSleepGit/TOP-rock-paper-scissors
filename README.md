@@ -1,14 +1,12 @@
 # Rock Paper Scissors Game
 
-![preview gif](/images/preview.gif) 
-
 Project to create **Rock Paper Scissors** game using only HTML, CSS and Vanilla JS.
 
-From The Odin Project's [curriculum](https://www.theodinproject.com/courses/foundations/lessons/rock-paper-scissors).
-
-🔗 **Live preview:** [here](https://github.com/EatSleepGit/TOP-rock-paper-scissors/)
+🔗 **Live preview:** [here](https://eatsleepgit.github.io/TOP-rock-paper-scissors/)
 
 ![Screenshot](/images/screenshot.png)
+
+![preview gif](/images/preview.gif) 
 
 ## Table of Contents
 * [General info](#general-info)
