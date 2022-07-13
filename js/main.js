@@ -7,7 +7,7 @@
 
 // Player & Computer Objects to keep their data
 const player = {
-  avatar: `img src=/images/player_avatar.png`,
+  avatar: `img src=images/player_avatar.png`,
   weapon: 'unDecided',
   name: 'Player One',
   cash: 300,
@@ -24,7 +24,7 @@ const player = {
 };
 
 const computer = {
-    avatar: `img src=/images/computer_avatar.png`,
+    avatar: `img src=images/computer_avatar.png`,
     name: 'Puter Boy',
     cash: 300,
     won: 0,
@@ -306,7 +306,7 @@ function updateGraphics(target, param1, clean=false, wait=0) {
         if (clean) { return }
     
         var img = document.createElement('IMG');
-        img.src = `/images/${param1}_120.png`;
+        img.src = `images/${param1}_120.png`;
         dv.appendChild(img);
     }, wait);
 }
