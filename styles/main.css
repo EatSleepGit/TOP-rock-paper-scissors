@@ -1,18 +1,20 @@
+/**
+ * @author Kim Arontaus
+ * @version 0.0.1
+ * ...
+ */
+
 /* Rock Paper Scissors main.css */
 
 /*--------------------------------------------------------------
 # Global
 --------------------------------------------------------------*/
 :root {
-  --main-console-color: #04335380;
-  --dark-color: #0c0c0c;
-  --console-background: #00a4c0;
-  --red-color: #9e0e0e;
-
   --page-background: #0c0c0c;
   --main-page-color: #7fc2ff;
-  --menu-font-color: #3A160D;
-  --menu-selected-background: #7fc2ff;
+  --main-console-color: #04335380;
+  --console-background: #00a4c0;
+  --red-color: #9e0e0e;
 }
 
 /* Make sure that padding behaves as expected */
@@ -22,10 +24,6 @@
   margin: 0;
 }
 
-/* * img {
-  filter:drop-shadow(0 5px 1px #d50102);
-} */
-
 body {
   background: var(--page-background);
   color: var(--main-page-color);
@@ -34,7 +32,6 @@ body {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  /* justify-content: space-between; */
 }
 
 /*--------------------------------------------------------------
@@ -52,7 +49,6 @@ body {
 /* ==================== Logo ===================== */
 
 .header_logo {
-  /* border: 1px solid rgb(99, 98, 98); */
   margin-left: 3em;
 }
 
@@ -68,10 +64,8 @@ body {
 /* ==================== Title ===================== */
 
 .header_title {
-  /* border: 1px solid rgb(99, 98, 98); */
   font-size: 3em;
   font-weight: bold;
-  /* filter:drop-shadow(0 5px 1px #d50102); */
 }
 
 .header_title span {
@@ -81,7 +75,6 @@ body {
 
 /* ===== Links ===== */
 .header_menu {
-  /* border: 1px solid rgb(99, 98, 98); */
   margin-right: 1em;
   font-size: 1.5em;
 }
@@ -100,7 +93,6 @@ body {
   color: var(--main-page-color);
 }
 
-
 /*--------------------------------------------------------------
 # Main
 --------------------------------------------------------------*/
@@ -108,34 +100,17 @@ body {
 .main_container {
   visibility: hidden;
   animation: fadeIn3 3s paused;
-
-  background: var(--dark-color);
-  /* border: 1px solid rgb(151, 150, 150); */
-
-
   min-height: 700px; /* temp */
 }
-
-
 
 /*--------------------------------------------------------------
 # Game Container
 --------------------------------------------------------------*/
 
 .game_container {
-  background: var(--dark-color);
-  /* border: 1px solid var(--main-page-color); */
-  /* border: 6px solid var(--main-console-color); */
-  /* border-radius: 10px; */
   margin: 1em auto;
-  
-
   width: 1300px;
   min-height: 700px;
-}
-
-.game_container_header {
-  background: var(--dark-color);
 }
 
 /* ===== Game Text Box (Messages) ===== */
@@ -143,7 +118,6 @@ body {
   visibility: hidden;
   /* animation: fadeIn1 3s paused; */
   border: 6px solid var(--dark-color);
-  /* border: 6px solid var(--main-console-color); */
   border-radius: 10px;
   min-height: 5em;
   font-size: 1.5em;
@@ -152,20 +126,26 @@ body {
   margin: 0 1.5em;
 }
 
+.type {
+  animation-play-state: paused !important;
+  width: 32ch;
+  animation: typing 4s steps(32), blink .5s step-end infinite alternate;
+  white-space: nowrap;
+  overflow: hidden;
+  border-right: 3px solid;
+  font-family: monospace;
+  font-size: 2em;
+}
 
 /*--------------------------------------------------------------
 # Game Console
 --------------------------------------------------------------*/
 
 .game_console {
-  /* background: var(--console-background); */
   color: var(--main-console-color);
   border: 6px solid var(--main-console-color);
   border-radius: 10px;
-  /* filter:drop-shadow(0 5px 1px #d50102); */
-  /* border-style: inset; */
   margin: 1em 2em;
-
   min-height: 500px;
 } 
 
@@ -181,17 +161,14 @@ body {
 
 /* ===== Information Header ===== */
 .console_header_info h2 {
-  /* margin-left: 2em; */
   white-space: pre;
-  color: var(--main-page-color);
 }
 
-
 /*--------------------------------------------------------------
-# Game Console Player
+# Game Console Player & Computer
 --------------------------------------------------------------*/
 
-.game_console_player {
+.game_console_player, .game_console_computer  {
   border: 6px solid var(--main-console-color);
   border-radius: 10px;
   background: var(--console-background);
@@ -202,7 +179,7 @@ body {
   display: flex;
 }
 
-.player_main {
+.player_main, .computer_main  {
   margin: 1px;
   width: 240px;
   height: 410px;
@@ -212,30 +189,35 @@ body {
   align-items: center;
 }
 
-/* ===== Player Avatar ===== */
-.player_avatar {
+/* ===== Player & Computer Avatars ===== */
+.player_avatar, .computer_avatar  {
   margin: 1px;
   width: 215px;
   height: 210px;
 }
-.player_avatar img {
+.player_avatar img, .computer_avatar img {
   width: 225px;
   height: 210px;
 }
 
-/* ===== Player Stats ===== */
-.player_stats {
+/* ===== Player & Computer Stats ===== */
+.player_stats, .computer_stats {
   margin: 1px;
   width: 225px;
   height: 200px;
   font-size: 1.5em;
 }
+
+.computer_stats {
+  font-size: 1.4em;
+}
+
 .player_cash, .computer_cash {
   display: flex;
   align-items: center;
 }
 
-.player_side {
+.player_side, .computer_side  {
   margin: 1px;
   width: 165px;
   height: 410px;
@@ -256,104 +238,30 @@ body {
   width: 30px;
 }
 
-/* ===== Player Weapons ===== */
-.player_weapons {
-  /* border: 1px dashed red; */
-}
+/* ===== Player & Computer Weapons ===== */
 .player_weapons_pulsating {
   animation: pulsating 2s infinite;
 }
 
-
+.player_weapons > *, .computer_weapons > * {
+  margin: 1px;
+  height: 100px;
+  margin-top: 0.5em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: auto; /* changed to auto */
+}
 .player_weapons > * {
   border: 3px solid var(--main-console-color);
   border-radius: 10px;
   cursor: pointer;
-  margin: 1px;
-  width: auto; /* changed to auto */
-  height: 100px;
-  margin-top: 0.5em;
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
 
 .player_weapons > *:hover {
-  /* border-color: var(--dark-color); */
   transform: scale(1.05);
-  border-color: var(--menu-selected-background);
+  border-color: var(--main-page-color);
   box-shadow: 0 0 1rem var(--main-page-color);
-  /* border-width: 5px; */
-}
-/* .player_weapons_activated {
-  background: var(--menu-selected-background);
-} */
-
-/*--------------------------------------------------------------
-# Game Console Computer
---------------------------------------------------------------*/
-
-.game_console_computer {
-  border: 6px solid var(--main-console-color);
-  border-radius: 10px;
-  background: var(--console-background);
-  /* don't keep?? */
-  height: 420px;
-  width: 420px;
-  margin: 0.5em;
-  display: flex;
-}
-
-.computer_main {
-  /* border: 1px dashed var(--main-console-color); */
-  margin: 1px;
-  width: 240px;
-  height: 410px;
-
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
-/* ===== Computer Avatar ===== */
-.computer_avatar {
-  margin: 1px;
-  width: 225px;
-  height: 210px;
-}
-.computer_avatar img {
-  width: 210px;
-  height: 210px;
-}
-
-/* ===== Computer Stats ===== */
-.computer_stats {
-  margin: 1px;
-  width: 225px;
-  height: 200px;
-  font-size: 1.4em;
-}
-
-.computer_side {
-  margin: 1px;
-  width: 165px;
-  height: 410px;
-
-  display: flex;
-  flex-direction: column;
-  justify-content: baseline;
-  align-items: center;
-}
-
-.computer_weapons > * {
-  margin: 1px;
-  width: 165px;
-  height: 100px;
-  margin-top: 0.5em;
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
 
 /*--------------------------------------------------------------
@@ -361,23 +269,14 @@ body {
 --------------------------------------------------------------*/
 
 .game_console_center {
-  /* border: 6px solid var(--main-console-color);
-  border-radius: 10px; */
-  /* background: var(--console-background); */
-
-
   margin: 0.5em;
   width: 330px;
   height: 420px;
-
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
-/* .game_console_center_active {
-  background: var(--main-page-color);
-} */
 
 .game_console_center > * {
   margin: 1px;
@@ -390,37 +289,35 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: end;
+}
+
+ .game_console_center_top,
+ .game_console_center_mid,
+ .game_console_center_bottom,
+ .game_console_center_mid_active,
+ .game_console_center_bottom_active {
   background: var(--console-background);
   border: 6px solid var(--main-console-color);
   border-radius: 10px;
-}
+ }
+
 .game_console_center_mid {
   visibility: hidden;
-  background: var(--console-background);
-  border: 6px solid var(--main-console-color);
-  border-radius: 10px;
 }
 .game_console_center_bottom {
   visibility: hidden;
-  background: var(--console-background);
-  border: 6px solid var(--main-console-color);
-  border-radius: 10px;
 }
 .game_console_center_mid_active {
-  background: var(--menu-selected-background);
-  border: 6px solid var(--main-console-color);
-  border-radius: 10px;
+  background: var(--main-page-color);
 }
 .game_console_center_bottom_active {
-  background: var(--menu-selected-background);
-  border: 6px solid var(--main-console-color);
-  border-radius: 10px;
+  background: var(--main-page-color);
 }
 
 /* ===== Transition (for Button  ===== */
 .transition {
   transform: scale(1.05);
-  border-color: var(--menu-selected-background);
+  border-color: var(--main-page-color);
   box-shadow: 0 0 1rem var(--main-page-color);
 }
 
@@ -448,15 +345,12 @@ align-items: center;
   /* animation: pulsating 2s infinite; */
 }
 .action_button:hover, .restart_button:hover {
-  /* border-color: var(--dark-color); */
   transform: scale(1.05);
-  border-color: var(--menu-selected-background);
+  border-color: var(--main-page-color);
   box-shadow: 0 0 1rem var(--main-page-color);
-  /* border-width: 5px; */
 }
 .action_button_pressed {
   background: var(--main-page-color);
-  /* border-width: 6px; */
 }
 .action_button_pulsating {
   animation: pulsating 2s infinite;
@@ -467,17 +361,13 @@ align-items: center;
 # Bet & VS (Game Console Center)
 --------------------------------------------------------------*/
 .amount_bet_text {
-  /* border: 1px dashed white; */
   text-align: center;
   font-weight: bold;
-
 }
 
 .chosen_weapons_text {
   text-align: center;
   font-weight: bold;
-  /* padding-bottom: 3px; */
-
 }
 
 /* ===== VS  ===== */
@@ -522,15 +412,11 @@ align-items: center;
   display: flex;
   justify-content: center;
 }
-/* .chosen_weapons_active {
-  background: var(--menu-selected-background);
-  border-radius: 10px;
-} */
+
 .chosen_weapons > * {
-  /* border: 1px dashed white; */
   margin: 1px;
   width: 100px;
-height: auto;
+  height: auto;
 }
 
 
@@ -538,16 +424,12 @@ height: auto;
 # Weapons
 --------------------------------------------------------------*/
 
-.player_weapons img {
+.player_weapons img, .computer_weapons img {
   width: 100px;
   height: auto;
-  padding: 15px;
 }
-
-.computer_weapons img {
-  width: 100px;
-  height: auto;
-  /* padding: 15px; */
+.player_weapons img {
+  padding: 15px;
 }
 
 .players_choice img, .computers_choice img {
@@ -569,37 +451,23 @@ height: auto;
 }
 
 .result_text {
-  /* border: 1px dashed white; */
   text-align: center;
   font-weight: bold;
 }
 
 .winner_box {
-  /* border: 1px dashed green; */
   display: flex;
-  /* width: 400px; */
 }
 
 .winner_info_box {
-  /* border: 1px dashed red; */
   width: 200px;
   margin-left: 5px;
   font-size: 1.3em;
-  /* line-height: 1.2; */
   position: relative;
 }
 
-.winner_name2 {
-  /* border: 1px dashed greenyellow; */
-}
-
 /* ===== Winning / Losing Weapons  ===== */
-#winning_weapon {
-  /* border: 1px dashed orange; */
-  width: fit-content;
-}
-#losing_weapon {
-  /* border: 1px dashed orange; */
+#winning_weapon, #losing_weapon {
   width: fit-content;
 }
 
@@ -614,10 +482,8 @@ height: auto;
 }
 .winner_info_box img {
   width: 30px;
-  /* margin: 0 auto; */
   position: absolute;
   right: 10px;
-  /* border: 1px dashed purple; */
 }
 .winner_weapon img{
   top: 25px;
@@ -632,10 +498,7 @@ height: auto;
 --------------------------------------------------------------*/
 
 footer {
-
   visibility: hidden;
-  background: var(--dark-color);
-  /* border: 1px solid rgb(151, 150, 150); */
   min-height: 3em;
   margin-top: auto;
 }
@@ -647,7 +510,6 @@ footer {
   align-items: center;
   font-size: 1.5em;
   padding: 1em;
-  /* border: 1px solid rgb(99, 98, 98); */
 }
 .footer_content img {
   margin-left: 5px;
@@ -684,7 +546,6 @@ footer {
 }
 
 
-
 /*--------------------------------------------------------------
 # Intro
 --------------------------------------------------------------*/
@@ -697,7 +558,7 @@ footer {
   width: 100%;
   height: 100%;
   z-index: 0;
-  background: var(--dark-color);
+  background: var(--page-background);
 }
 
 .exit_text {
@@ -735,17 +596,13 @@ footer {
   animation-delay: 2.5s;
 }
 .intro_container h2.splash_3 {
-  /* font-size: 200px; */
   animation-delay: 5.5s;
 }
 .intro_container h2.splash_4 {
-  /* font-size: 200px; */
   animation-delay: 9s;
 }
 .intro_container h2.splash_5 {
   animation: none;
-  /* color: transparent;
-  text-shadow: 0px 0px 1px var(--main-page-color) */
 }
 .intro_container h2.splash_5 span {
   animation: blurFadeIn 3s ease-in 13s backwards;
@@ -776,7 +633,7 @@ footer {
 .intro_container h2.splash_5 {
   animation: fadeOut 3s ease-out 19s forwards;
   color: transparent;
-  text-shadow: 0px 0px 1px var(--dark-color);
+  text-shadow: 0px 0px 1px var(--page-background);
 }
 
 .pics {
@@ -866,17 +723,6 @@ footer {
 
 
 /* ===== Game Text Box (Message) Animation  ===== */
-.type {
-  animation-play-state: paused !important;
-  width: 32ch;
-  /* width: fit-content; */
-  animation: typing 4s steps(32), blink .5s step-end infinite alternate;
-  white-space: nowrap;
-  overflow: hidden;
-  border-right: 3px solid;
-  font-family: monospace;
-  font-size: 2em;
-}
 
 @keyframes typing {
   from {

@@ -189,7 +189,7 @@ function playerWeaponsAppearance(status) {
         Array.from(document.querySelector('.player_weapons').children).forEach((child, i) => {  
             setTimeout(() => {
                 playSound('shutter');
-                child.style.background = 'var(--menu-selected-background)';                   
+                child.style.background = 'var(--main-page-color)';                   
             },i * 500);
         })
     }
@@ -284,6 +284,8 @@ function resultGraphics(clean) {
     updateGraphics('.winner_weapon', gameResults.winningWeapon, clean);        
     updateGraphics('.loser_weapon', gameResults.losingWeapon, clean);
     if (!gameResults.tie) {
+
+        // FIX! gameResults.winner.toLowerCase() throws an error rarely!?
         updateGraphics('.winner_avatar', gameResults.winner.toLowerCase(), clean);
     }      
 }
